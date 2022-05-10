@@ -1,0 +1,24 @@
+A simple lexical analyser 
+
+A lexical analyser converts a stream of characters into a stream of tokens. A token refers to a meaningful group of characters. Eg: int refers to a datatype, # refers to a preprocessor directive etc
+Every program runs through a lexical analyser, the lexical analyser is a program that defines the tokens that a language accepts. i.e what are the valid 
+
+A simple lexical analyser consists of 3 parts
+1. Declaration
+2. Rules
+3. Auxillary functions
+
+Part 1 : The Declaration
+
+
+
+
+
+
+
+yywrap() just add this function prototype
+
+yytext() stores the previously read token, can access this using yytext, strlen(yytext)
+
+yyleng stores the length of the previosly read token
+

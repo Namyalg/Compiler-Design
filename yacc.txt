@@ -1,0 +1,118 @@
+yet another compiler compiler
+
+generates the parse tree given tokens
+
+needs a context free grammar
+
+need to write a lex file, which has tokens
+
+the context free grammar that needs to be applied on the tokens is used here
+
+compiler using yacc compiler
+y.tab.c -  parse tree in C (draw the push down automata and convert it to C)
+y.tab.h - header for the tokens
+
+include y.tab.h in the lex file links yacc part to lex part 
+
+
+// This return a is returned from lex to yacc, the getNextToken() function reads and it returns the letter a, b
+//but this is case where the input token is the same as id 
+//but in case of an identifier where [_a-zA-Z][a-zA-Z_0-9]* {return id} indicating that this is a token or an identifier 
+//write this is as a token in the yacc file as token id, num etc these are the names of tokens
+// +|-|*|/ {return op;}
+// can also evaluate, exprerssions give associativity for it as 
+// left '+' '-' indicating left associativity 
+// left '*' '/' 
+
+YACC PRIORITY IS FROM THE BOTTOM 
+SO * / are present at the bottom, same as the parse tree where lower in the tree higher is the PRIORITY
+
+
+same rules part 
+
+%%
+
+    the context free grammar {action associated with it}
+    cfg {action}
+
+%%
+
+
+'a
+S : 'a'S'a'
+
+
+S -> aSa | b 
+
+In the yacc rules
+S : 'a'S'a'
+  | 'b'
+  ; //  end of productions for S 
+
+
+
+S -> aSa | b | epsilon 
+
+
+S : 'a'S'a'
+  | 'b'
+  | //this indicated semicolon
+  ; // this is the end of the production for S 
+
+If ; needs to be included in the grammar then  
+
+
+S : 'a'S'a'
+  | 'b'
+  | ;  -> means it derives a semi-colon as well 
+  ; // this JUST MEANS THE END OF THE PRODUCTION FOR S
+
+use yyparse to take in the input, and this in tern calls yylex inside 
+
+yyerror is a very large function that needs to be overidden for our use as 
+the string is not successfull
+
+without overidding yyerror u may not get the error so override the yyerror function
+
+
+
+
+Steps to compile it 
+
+lex regex.l 
+yacc cfg.y 
+
+gcc lex.yy.c y.tab.c -ll
+
+use -ll and -ly if there are linker errors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This return a is returned from lex to yacc, the getNextToken() function reads and it returns the letter a, b
+//but this is case where the input token is the same as id 
+//but in case of an identifier where [_a-zA-Z][a-zA-Z_0-9]* {return id} indicating that this is a token or an identifier 
+//write this is as a token in the yacc file as token id, num etc these are the names of tokens
+// +|-|*|/ {return op;}
+// can also evaluate, exprerssions give associativity for it as 
+// left '+' '-' indicating left associativity 
+// left '*' '/' 
+
+YACC PRIORITY IS FROM THE BOTTOM 

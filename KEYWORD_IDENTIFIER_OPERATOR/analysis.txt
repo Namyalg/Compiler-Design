@@ -1,0 +1,8 @@
+The assumptions are 
+- Spaces is the delimitier, i.e when it encounters a space it leads to a mismatch and it starts
+all over again 
+- Dont handle spaces explicitly, when there is a space it will start the iteration all over again
+MAIN LOGIC USED HERE : easy and smart
+
+
+
