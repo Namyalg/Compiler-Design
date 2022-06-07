@@ -19,7 +19,19 @@ YACC file
 
 this is how the tokens are given 
 
-%left associative + - 
-%left associative * / 
+%left  + - 
+%left  * / 
 
-* / are after + - as they are 
+* / are after + - as they are having a higher precedence over + and - 
+if all operators were to be included as 
+
+%left + - 
+%left * /
+%right ^ 
+
+Exponent has the highest precedence and is present at the bottom 
+It is right to left associative
+While the other 2 are left to right associative
+
+
+
