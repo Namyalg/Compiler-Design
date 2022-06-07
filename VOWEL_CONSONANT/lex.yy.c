@@ -659,7 +659,7 @@ YY_DECL
 		}
 
 	{
-#line 6 "p1.l"
+#line 7 "p1.l"
 
 #line 665 "lex.yy.c"
 
@@ -720,28 +720,28 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 7 "p1.l"
+#line 8 "p1.l"
 {v++;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 8 "p1.l"
+#line 9 "p1.l"
 {c++;}
 	YY_BREAK
 case 3:
 /* rule 3 can match eol */
 YY_RULE_SETUP
-#line 9 "p1.l"
+#line 10 "p1.l"
 return 0;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 10 "p1.l"
+#line 11 "p1.l"
 ;
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 11 "p1.l"
+#line 12 "p1.l"
 ECHO;
 	YY_BREAK
 #line 748 "lex.yy.c"
@@ -1749,7 +1749,7 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 11 "p1.l"
+#line 12 "p1.l"
 
 // This returns an error if not included, doesnt mean anything but include this function prototype
 int yywrap(){return 0;}

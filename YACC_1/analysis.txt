@@ -1,0 +1,25 @@
+The program is to evalute any mathematical expresions 
++, /, -, * and ( )
+
+In the lex it is tokenised and the tokens +, -, *, / are returned 
+
+for the integers, it is converted to integer using atoi and assigned to yylval 
+
+yylval is an extern variable shared between the 2 files, 
+
+is a global variable whose semantic value is shared between the files 
+
+Also add yywrap ? not sure why this is being added though 
+
+YACC file
+
+%token cpb
+%left plus minus
+%left mult divide 
+
+this is how the tokens are given 
+
+%left associative + - 
+%left associative * / 
+
+* / are after + - as they are 

@@ -2,10 +2,12 @@
     #include<stdio.h>
     #include<stdlib.h>
 %}
+%token a1
+%token b1
 
 %% 
-S : 'a'S'a'
-  | 'b'
+S : a1 S a1
+  | b1
   ;
 %%
 
@@ -17,5 +19,5 @@ int main(){
 
 int yyerror(){
     printf("The string is erroneous \n");
-    exit(1);
+    exit(0);
 }
