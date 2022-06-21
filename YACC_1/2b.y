@@ -15,9 +15,9 @@
 
 S : T {printf("Result is %d \n", $$); return 0;} 
 ;
-T : T plus T {$$ = $1 + $3;}
+T : T plus T {$$ = $1 + $3; printf("%d %d \n", $1, $3);}
   | T minus T {$$ = $1 - $3;}
-  | T mult T {$$ = $1 * $3;}
+  | T mult T {$$ = $1 * $3; printf("%d %d \n", $1, $3);}
   | T divide T {$$ = $1 / $3;}
   | opb T cpb {$$ = $2;}
   | num {$$ = $1;}

@@ -14,6 +14,8 @@
 . ;
 %%
 // This returns an error if not included, doesnt mean anything but include this function prototype
+//longest match is done here and then it breaks if nothing is found here 
+
 int yywrap(){return 0;}
 int main(){
     printf("Enter the input \n");
