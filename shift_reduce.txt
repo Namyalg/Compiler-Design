@@ -1,0 +1,14 @@
+E -> E + E | E * E | id 
+
+add the operators to another stack 
+
+The operands to another stack 
+
+and see the priority based on the operators, thats the only logic
+
+
+a+a*a 
+
+need to go ahead as welll
+
+

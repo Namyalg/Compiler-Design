@@ -1,0 +1,39 @@
+lex 1b.l
+yacc -d 1b.y
+cc y.tab.c lex.yy.c -ll
+./a.out
+
+
+Bottom to top is increase in precedence
+Mention the associativity as left, right
+
+
+%left plus minus
+%left mult div 
+%right exp 
+
+means precedence increases from bottom to top so exp has the highest precedence 
+and then the associativity goes from left to right which is indicated here in the figure 
+
+
+
+Questions
+
+1. How to handle file
+2. What are the inputs that will be given, how should we check for the inputs
+3. Program for the shift reduce thingy
+4. write the program without comments in another file 
+
+
+
+
+Need to ask about the program to generate the shift reduce parsing table 
+
+And the Intermediate code gen for C statements 
+
+and clarify the outputs also
+
+
+
+
+
