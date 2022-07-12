@@ -1,5 +1,7 @@
+
 %{
 #include<stdio.h>
+#include<ctype.h>
 #include<stdlib.h>
 void ThreeAddressCode();
 void triple();
@@ -49,6 +51,14 @@ code[ind].opr=opr;ind++;
 temp++;
 return temp;
 }
+
+void print(){
+
+    for(int i = 0; i < 20; i++){
+
+    }
+}
+
 void ThreeAddressCode()
 {
 int cnt=0;
@@ -56,12 +66,13 @@ temp++;
 printf("\n\n\t THREE ADDRESS CODE\n\n");
 while(cnt<ind){
 printf("%c : = \t",temp);
-if(isalpha(code[cnt].opd1))
+if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
 {printf("%c\t",temp);}
+temp++;
 printf("%c\t",code[cnt].opr);
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
 printf("%c\t",code[cnt].opd2);
 else
 {printf("%c\t",temp);}
@@ -80,12 +91,12 @@ while(cnt<ind){
 printf("\t");
 printf("%c",code[cnt].opr);
 printf("\t");
-if(isalpha(code[cnt].opd1))
+if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
 {printf("%c\t",temp);}
 //printf("%c\t",code[cnt].opr);
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
 printf("%c\t",code[cnt].opd2);
 else
 {printf("%c\t",temp);}
@@ -107,13 +118,13 @@ if(id1==0){
 printf("%d",id1);
 printf("\t");
 printf("%c",code[cnt].opr);
-printf("\t");if(isalpha(code[cnt].opd1))
+printf("\t");if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
     {printf("%c\t",temp);}
 
 cnt1=cnt-1;
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
     printf("%c",code[cnt].opd2);
 else
 {
@@ -124,13 +135,13 @@ else{
     printf("\t");
     printf("%c",code[cnt].opr); 
     printf("\t");
-    if(isalpha(code[cnt].opd1))
+    if(isalnum(code[cnt].opd1))
         printf("%c\t",code[cnt].opd1); 
     else
         {printf("%c\t",temp);}
     //printf("%c\t",code[cnt].opr);
     cnt1=cnt-1;
-    if(isalpha(code[cnt].opd2)) 
+    if(isalnum(code[cnt].opd2)) 
         printf("%d",id1-1);
     else
         {printf("%c\t",temp);}
@@ -150,6 +161,12 @@ void main(){
     quadraple();
     triple();
 }
+/*
+    yacc is ordering the structure of the operands and add the things 
+*/
+
 int yywrap(){
-return
-1;}
+    return 1;
+}
+
+

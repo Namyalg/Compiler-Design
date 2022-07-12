@@ -71,9 +71,10 @@
 
     #include<stdio.h>
     #include "y.tab.h"
+    int count = 0;
     #include<stdlib.h>
 
-#line 77 "y.tab.c"
+#line 78 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -556,7 +557,7 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    14,    14,    16,    17
+       0,    15,    15,    17,    18
 };
 #endif
 
@@ -1131,8 +1132,20 @@ yyreduce:
   YY_REDUCE_PRINT (yyn);
   switch (yyn)
     {
+  case 3: /* T: fory op text inc incp cp ofb T cfb  */
+#line 17 "3b.y"
+                                       {count += 1;}
+#line 1139 "y.tab.c"
+    break;
 
-#line 1136 "y.tab.c"
+  case 4: /* T: fory op text inc incp cp ofb cfb  */
+#line 18 "3b.y"
+                                     { count += 1;}
+#line 1145 "y.tab.c"
+    break;
+
+
+#line 1149 "y.tab.c"
 
       default: break;
     }
@@ -1326,12 +1339,13 @@ yyreturn:
   return yyresult;
 }
 
-#line 19 "3b.y"
+#line 20 "3b.y"
 
 
 int main(){
     yyparse();
     printf("No error \n");
+    printf("The level of nesting is %d \n", count);
     return 0;
 }
 

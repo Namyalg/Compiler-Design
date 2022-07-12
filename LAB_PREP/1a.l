@@ -17,8 +17,8 @@
 
 int main(){
     //yylex();
-    yyin = fopen("in.txt", "rw");
-    yyout = fopen("out.txt", "a");
+    //yyin = fopen("in.txt", "rw");
+    //yyout = fopen("out.txt", "a");
     yylex(); // even with the file input you need to use yylex for the input indicating that it needs to write to it
     printf("The number of words are %d \n", words);    
     printf("The number of lines are %d \n", lines);  

@@ -7,13 +7,15 @@
 
 %%
 
-"/*"[a-zA-Z0-9\n ]*"*/" {multi += 1;} // writing this \n in multiline is important as a multiline comment needs to handle new line as welllllll 
+"/*"[a-zA-Z0-9\n ]*"*/" {multi += 1; } // writing this \n in multiline is important as a multiline comment needs to handle new line as welllllll 
 "//"[a-zA-Z0-9 ]* {single += 1;} // do not add the \n here as single line means no \n in the thing
 _ {return 0;}
-. ; {writefile(yytext);}
+. ; {fprintf(yyout, yytext); }
+
 %%
 
 int main(){
+    yyout = fopen("out.txt", "a");
     yylex();
     printf("Number of multi line comments %d \n", multi);
     printf("Number of single line comments %d \n", single);

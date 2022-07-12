@@ -70,6 +70,7 @@
 #line 1 "4a.y"
 
 #include<stdio.h>
+#include<ctype.h>
 #include<stdlib.h>
 void ThreeAddressCode();
 void triple();
@@ -84,7 +85,7 @@ char opd2;
 char opr;
 };
 
-#line 88 "y.tab.c"
+#line 89 "y.tab.c"
 
 # ifndef YY_CAST
 #  ifdef __cplusplus
@@ -145,11 +146,11 @@ extern int yydebug;
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 union YYSTYPE
 {
-#line 18 "4a.y"
+#line 19 "4a.y"
 
 char sym;
 
-#line 153 "y.tab.c"
+#line 154 "y.tab.c"
 
 };
 typedef union YYSTYPE YYSTYPE;
@@ -562,8 +563,8 @@ static const yytype_int8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_int8 yyrline[] =
 {
-       0,    26,    26,    27,    30,    31,    32,    33,    34,    35,
-      36
+       0,    27,    27,    28,    31,    32,    33,    34,    35,    36,
+      37
 };
 #endif
 
@@ -1149,55 +1150,55 @@ yyreduce:
   switch (yyn)
     {
   case 2: /* statement: LETTER '=' expr ';'  */
-#line 26 "4a.y"
+#line 27 "4a.y"
                                {AddToTable((char)(yyvsp[-3].sym),(char)(yyvsp[-1].sym),'=');}
-#line 1155 "y.tab.c"
+#line 1156 "y.tab.c"
     break;
 
   case 4: /* expr: expr '+' expr  */
-#line 30 "4a.y"
+#line 31 "4a.y"
                     {(yyval.sym) = AddToTable((char)(yyvsp[-2].sym),(char)(yyvsp[0].sym),'+');}
-#line 1161 "y.tab.c"
+#line 1162 "y.tab.c"
     break;
 
   case 5: /* expr: expr '-' expr  */
-#line 31 "4a.y"
+#line 32 "4a.y"
                 {(yyval.sym) = AddToTable((char)(yyvsp[-2].sym),(char)(yyvsp[0].sym),'-');}
-#line 1167 "y.tab.c"
+#line 1168 "y.tab.c"
     break;
 
   case 6: /* expr: expr '*' expr  */
-#line 32 "4a.y"
+#line 33 "4a.y"
                 {(yyval.sym) = AddToTable((char)(yyvsp[-2].sym),(char)(yyvsp[0].sym),'*');}
-#line 1173 "y.tab.c"
+#line 1174 "y.tab.c"
     break;
 
   case 7: /* expr: expr '/' expr  */
-#line 33 "4a.y"
+#line 34 "4a.y"
                 {(yyval.sym) = AddToTable((char)(yyvsp[-2].sym),(char)(yyvsp[0].sym),'/');}
-#line 1179 "y.tab.c"
+#line 1180 "y.tab.c"
     break;
 
   case 8: /* expr: '(' expr ')'  */
-#line 34 "4a.y"
+#line 35 "4a.y"
                {(yyval.sym) = (char)(yyvsp[-1].sym);}
-#line 1185 "y.tab.c"
+#line 1186 "y.tab.c"
     break;
 
   case 9: /* expr: NUMBER  */
-#line 35 "4a.y"
+#line 36 "4a.y"
          {(yyval.sym) = (char)(yyvsp[0].sym);}
-#line 1191 "y.tab.c"
+#line 1192 "y.tab.c"
     break;
 
   case 10: /* expr: LETTER  */
-#line 36 "4a.y"
+#line 37 "4a.y"
          {(yyval.sym) = (char)(yyvsp[0].sym);}
-#line 1197 "y.tab.c"
+#line 1198 "y.tab.c"
     break;
 
 
-#line 1201 "y.tab.c"
+#line 1202 "y.tab.c"
 
       default: break;
     }
@@ -1391,7 +1392,7 @@ yyreturn:
   return yyresult;
 }
 
-#line 38 "4a.y"
+#line 39 "4a.y"
 
 yyerror(char *s){
 printf("%s",s);
@@ -1406,6 +1407,14 @@ code[ind].opr=opr;ind++;
 temp++;
 return temp;
 }
+
+void print(){
+
+    for(int i = 0; i < 20; i++){
+
+    }
+}
+
 void ThreeAddressCode()
 {
 int cnt=0;
@@ -1413,12 +1422,13 @@ temp++;
 printf("\n\n\t THREE ADDRESS CODE\n\n");
 while(cnt<ind){
 printf("%c : = \t",temp);
-if(isalpha(code[cnt].opd1))
+if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
 {printf("%c\t",temp);}
+temp++;
 printf("%c\t",code[cnt].opr);
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
 printf("%c\t",code[cnt].opd2);
 else
 {printf("%c\t",temp);}
@@ -1437,12 +1447,12 @@ while(cnt<ind){
 printf("\t");
 printf("%c",code[cnt].opr);
 printf("\t");
-if(isalpha(code[cnt].opd1))
+if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
 {printf("%c\t",temp);}
 //printf("%c\t",code[cnt].opr);
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
 printf("%c\t",code[cnt].opd2);
 else
 {printf("%c\t",temp);}
@@ -1464,13 +1474,13 @@ if(id1==0){
 printf("%d",id1);
 printf("\t");
 printf("%c",code[cnt].opr);
-printf("\t");if(isalpha(code[cnt].opd1))
+printf("\t");if(isalnum(code[cnt].opd1))
 printf("%c\t",code[cnt].opd1);
 else
     {printf("%c\t",temp);}
 
 cnt1=cnt-1;
-if(isalpha(code[cnt].opd2))
+if(isalnum(code[cnt].opd2))
     printf("%c",code[cnt].opd2);
 else
 {
@@ -1481,13 +1491,13 @@ else{
     printf("\t");
     printf("%c",code[cnt].opr); 
     printf("\t");
-    if(isalpha(code[cnt].opd1))
+    if(isalnum(code[cnt].opd1))
         printf("%c\t",code[cnt].opd1); 
     else
         {printf("%c\t",temp);}
     //printf("%c\t",code[cnt].opr);
     cnt1=cnt-1;
-    if(isalpha(code[cnt].opd2)) 
+    if(isalnum(code[cnt].opd2)) 
         printf("%d",id1-1);
     else
         {printf("%c\t",temp);}

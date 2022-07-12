@@ -1327,6 +1327,7 @@ int main(){
     return 0;
     // G handled {// handles the case when there are no parameters passed to the funciton;}
     // T handles {// here it has to end with an type followed by identifier, and can only end with the same;}
+    // does not allow comma at the end of the declaration parameters, needs to end with semi colon since this is a function definition
 }
 
 int yyerror(){
