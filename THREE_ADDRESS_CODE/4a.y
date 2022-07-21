@@ -162,7 +162,7 @@ void main(){
     triple();
 }
 /*
-    yacc is ordering the structure of the operands and add the things 
+    yacc is ordering the structure of the operands and adding the things to the structure
 */
 
 int yywrap(){
