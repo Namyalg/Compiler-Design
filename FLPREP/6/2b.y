@@ -23,7 +23,7 @@ char sym;
 %token <sym> LETTER NUMBER
 %type <sym> expr
 %left '-' '+'
-%left '*' '/'
+%right '*' '/'
 %%
 statement: LETTER '=' expr ';' {AddToTable((char)$1,(char)$3,'=');}
 | expr ';'

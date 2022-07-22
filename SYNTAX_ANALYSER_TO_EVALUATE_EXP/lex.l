@@ -7,7 +7,7 @@
 %%
 [0-9]+    {
               yylval = atoi(yytext);
-              return NUMBER;
+              return num;
             }
  
 [a-zA-Z]+    { return ID; }
